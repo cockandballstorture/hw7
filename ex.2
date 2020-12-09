@@ -1,0 +1,18 @@
+q=float(input())
+w=float(input())
+e=float(input())
+r=float(input())
+class complex:
+    def __init__(self,r,i):
+        self.r=r
+        self.i=i
+    def __mul__(self,a):
+        s=complex(0,0)
+        s.r=(self.r*a.r)-(self.i*self.i)
+        s.i=(self.r*a.i)+(a.r*self.i)
+        return(s)
+    def __str__(self):
+        return '{}+{}i'.format(self.r,self.i)
+k=complex(q,w)
+l=complex(e,r)
+print(k*l)
