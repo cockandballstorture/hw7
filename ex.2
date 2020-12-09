@@ -8,7 +8,7 @@ class complex:
         self.i=i
     def __mul__(self,a):
         s=complex(0,0)
-        s.r=(self.r*a.r)-(self.i*self.i)
+        s.r=(self.r*a.r)-(self.i*a.i)
         s.i=(self.r*a.i)+(a.r*self.i)
         return(s)
     def __str__(self):
