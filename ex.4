@@ -24,11 +24,14 @@ class complex:
         b=degrees(b)
         return(b)
     def __pow__(self,n):
+        t=complex(0,0)
+        t.mode='trig'
         if self.mode == 'norm':
             self.to_trig()
-        self.tm=self.tm**n
-        self.tr=cos(n*asin(self.tr))
-        self.ti=sin(n*acos(self.ti))
+        t.tm=self.tm**n
+        t.tr=cos(n*asin(self.tr))
+        t.ti=sin(n*acos(self.ti))
+        return(t)
     def sq(self,n):
         n=int(n)
         if self.mode == 'norm':
@@ -57,5 +60,5 @@ print(e)
 k.to_alg()
 print(k)
 q=int(input("возведение в степень"))
-k**q
-print(k)
+t=k**q
+print(t)
