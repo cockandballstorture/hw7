@@ -44,11 +44,14 @@ class complex:
             s.i = (self.r * a.i) + (a.r * self.i)
         return (s)
     def __pow__(self,n):
+        t=complex(0,0)
+        t.mode='trig'
         if self.mode == 'norm':
             self.to_trig()
-        self.tm=self.tm**n
-        self.tr=cos(n*asin(self.tr))
-        self.ti=sin(n*acos(self.ti))
+        t.tm=self.tm**n
+        t.tr=cos(n*asin(self.tr))
+        t.ti=sin(n*acos(self.ti))
+        return(t)
     def __truediv__(self, a):
         s = complex(0, 0)
         if (a.i == 0):
@@ -72,3 +75,24 @@ class complex:
             return '{} + i*{}'.format(self.r, self.i)
         else:
             return '|{}|*({}+i*{})'.format(self.tm, self.tr, self.ti)
+a=float(input())
+b=float(input())
+k=complex(a,b)
+k.to_trig()
+print(k)
+q=int(input("корень степени"))
+k.sq(q)
+w=k.tmodule()
+print(w)
+e=k.phi()
+print(e)
+k.to_alg()
+print(k)
+c=float(input("real"))
+d=float(input("imag"))
+r=complex(c,d)
+t=k/r
+print(t)
+q=int(input("возведение в степень"))
+t=k**q
+print(t)
