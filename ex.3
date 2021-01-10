@@ -6,15 +6,15 @@ class complex:
     def __init__(self,r,i):
         self.r=r
         self.i=i
-    def __div__(self,a):
-        s=complex(0,0)
-        if (a.i==0):
-            s.r=self.r/a.r
-            s.i=self.i/a.r
+    def __truediv__(self, a):
+        s = complex(0, 0)
+        if (a.i == 0):
+            s.r = self.r / a.r
+            s.i = self.i / a.r
         else:
-          s.r=((self.r*a.r)-(self.i*a.i*(-1)))/((a.r)^2+1)
-          s.i=((self.r*a.i*(-1))+(a.r*self.i))/((a.r)^2+1)
-        return(s)
+            s.r = ((self.r * a.r) - (self.i * a.i * (-1))) / ((a.r) ** 2 + 1)
+            s.i = ((self.r * a.i * (-1)) + (a.r * self.i)) / ((a.r) ** 2 + 1)
+        return (s)
     def __str__(self):
         return '{}+{}i'.format(self.r,self.i)
 k=complex(q,w)
