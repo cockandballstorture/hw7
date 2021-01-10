@@ -63,13 +63,21 @@ class complex:
         return (s)
     def sq(self,n):
         n=int(n)
+        p=[]
         if self.mode == 'norm':
             self.to_trig()
         for i in range(0,n):
             self.rm = self.tm ** n
             self.rr = cos((asin(self.tr)+asin(self.tr)*2*i)/n)
             self.ri = sin((asin(self.tr)+asin(self.tr)*2*i)/n)
-            print('|',self.rm,'|*(',self.rr,'i*',self.ri,')')
+            float(self.rm)
+            float(self.rr)
+            float(self.ri)
+            p.append(self.rm)
+            p.append(self.rr)
+            p.append(self.ri)
+        return(p)
+
     def __str__(self):
         if self.mode=='norm':
             return '{} + i*{}'.format(self.r, self.i)
@@ -81,7 +89,12 @@ k=complex(a,b)
 k.to_trig()
 print(k)
 q=int(input("корень степени"))
-k.sq(q)
+p=[]
+p=k.sq(q)
+for i in range(q):
+    s=i*3
+    print('|',p[s],'*','(',p[s+1],'+i*',p[s+2])
+
 w=k.tmodule()
 print(w)
 e=k.phi()
@@ -96,3 +109,4 @@ print(t)
 q=int(input("возведение в степень"))
 t=k**q
 print(t)
+
